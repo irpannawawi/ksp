@@ -1,9 +1,8 @@
 @extends('templates.layout')
-@section('title', 'Pinjaman')
-@section('sidebar-pinjaman', 'active')
+@section('title', 'Pencairan')
+@section('sidebar-pencairan', 'active')
 @section('contents')
 <div class="container-fluid">
-    <a href="{{url('tambah_pinjaman')}}">Tambah data</a>
     @if (Session::has('msg'))
         <p>{{session('msg')}}</p>
     @endif
@@ -31,11 +30,10 @@
                 <td>Rp.{{number_format($data->besar_pinjaman, 0, '.',',')}},-</td>
                 <td>{{$data->lama_angsuran}} Bulan</td>
                 <td>Rp.{{number_format($data->total_pinjaman, 0, '.',',')}},-</td>
-                <td><span class="badge badge-{{$data->status_pencairan=='menunggu'?'warning':'success'}}">{{$data->status_pencairan}}</span></td>
+                <td><span class="badge badge-{{$data->status_pencairan=='Menunggu'?'warning':'success'}}">{{$data->status_pencairan}}</span></td>
                 <td>
-                    @if ($data->status_pencairan != 'Dicairkan')
-                        <a class="btn btn-warning" href="{{url('edit_pinjaman/'.$data->no_pinjaman)}}">Edit</a>
-                        <a class="btn btn-danger" onclick="return confirm('Hapus data pinjaman?')" href="{{url('delete_pinjaman/'.$data->no_pinjaman)}}">Hapus</a>
+                    @if ($data->status_pencairan == 'Menunggu')
+                        <a class="btn btn-success" onclick="return confirm('Cairkan pinjaman?')" href="{{url('cairkan_pinjaman/'.$data->no_pinjaman)}}">Cairkan</a>
                     @endif
                 </td>
             </tr>

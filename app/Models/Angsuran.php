@@ -21,4 +21,8 @@ class Angsuran extends Model
         'denda',
         'id_petugas',
     ];
+
+    public function petugas(){
+        return $this->hasOne(Petugas::class, 'id_petugas');
+    }
 }

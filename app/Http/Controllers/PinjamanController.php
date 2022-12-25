@@ -55,4 +55,11 @@ class PinjamanController extends Controller
 
         }
     }
+
+    public function cairkan_pinjaman(Request $request, $no_pinjaman){
+        $pinjaman = Pinjaman::find($no_pinjaman);
+        $pinjaman->status_pencairan = 'Dicairkan';
+        $pinjaman->save();
+        return redirect()->back()->with('msg', 'Dana pinjaman telah dicairkan');
+    }
 }

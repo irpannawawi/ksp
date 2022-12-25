@@ -27,4 +27,14 @@ class Pinjaman extends Model
     public function nasabah(){
         return $this->belongsTo(Nasabah::class, 'no_nasabah');
     }
+
+    public function pencairan()
+    {
+        return $this->hasOne(Pencairan::class, 'no_pinjaman');
+    }
+
+    public function petugas(){
+        return $this->hasOne(Petugas::class, 'id_petugas');
+    }
+   
 }

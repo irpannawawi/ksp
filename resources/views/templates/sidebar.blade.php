@@ -65,6 +65,20 @@
                     <i class="fas fa-fw fa-hands"></i>
                     <span>Pinjaman</span>
                 </a>
+            </li>  
+            
+            <li class="nav-item @yield('sidebar-pencairan')">
+                <a class="nav-link collapsed" href="{{route('pencairan')}}" >
+                    <i class="fas fa-fw fa-dollar-sign"></i>
+                    <span>Pencairan</span>
+                </a>
+            </li>    
+
+            <li class="nav-item @yield('sidebar-angsuran')">
+                <a class="nav-link collapsed" href="{{route('angsuran')}}" >
+                    <i class="fas fa-fw fa-th-list"></i>
+                    <span>Angsuran</span>
+                </a>
             </li>
 
             <!-- Nav Item - Charts -->

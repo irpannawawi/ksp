@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\PinjamanController;
+use App\Http\Controllers\PencairanController;
+use App\Http\Controllers\AngsuranController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,4 +52,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tambah_pinjaman', [PinjamanController::class, 'tambah_pinjaman']);
     Route::post('/tambah_pinjaman_2', [PinjamanController::class, 'tambah_pinjaman_2']);
     Route::post('/tambah_pinjaman_3', [PinjamanController::class, 'tambah_pinjaman_3']);
+    
+    // PENCAIRAN
+    Route::get('/pencairan', [PencairanController::class, 'index'])->name('pencairan');
+    Route::get('/cairkan_pinjaman/{no_pinjaman}', [PencairanController::class, 'cairkan_pinjaman']);
+    Route::post('/act_pencairan', [PencairanController::class, 'act_pencairan']);
+    
+    // ANGSURAN
+    Route::get('/angsuran', [AngsuranController::class, 'index'])->name('angsuran');
+    Route::get('/riwayat_angsuran/{no_pencairan}', [AngsuranController::class, 'riwayat_angsuran']);
+    Route::get('/bayar_angsuran/{no_pencairan}', [AngsuranController::class, 'bayar_angsuran']);
+    Route::post('/act_bayar_angsuran', [AngsuranController::class, 'act_bayar_angsuran']);
 });
