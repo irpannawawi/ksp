@@ -48,18 +48,30 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Transaksi
+                Transaksi Tabungan
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+            <li class="nav-item @yield('sidebar-simpanan')">
+                <a class="nav-link collapsed" href="{{route('simpanan')}}" >
                     <i class="fas fa-fw fa-arrow-down"></i>
                     <span>Simpanan</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('transaksi')}}">
+                    <i class="fas fa-fw fa-arrow-up"></i>
+                    <span>Penarikan</span>
+                </a>
+            </li>
             
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Transaksi Pinjaman
+            </div>
             <li class="nav-item @yield('sidebar-pinjaman')">
                 <a class="nav-link collapsed" href="{{route('pinjaman')}}" >
                     <i class="fas fa-fw fa-hands"></i>

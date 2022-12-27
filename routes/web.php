@@ -8,6 +8,8 @@ use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\PencairanController;
 use App\Http\Controllers\AngsuranController;
+use App\Http\Controllers\SimpananController;
+use App\Http\Controllers\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,7 +46,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('edit_petugas', [PetugasController::class, 'act_edit_petugas']);
     Route::get('delete_petugas/{id_petugas}', [PetugasController::class, 'delete_petugas']);
 
+    // SIMPANAN
+    Route::get('simpanan', [SimpananController::class, 'index'])->name('simpanan');
+    Route::get('tambah_simpanan', [SimpananController::class, 'tambah_simpanan']);
+    Route::post('act_tambah_simpanan', [SimpananController::class, 'act_tambah_simpanan']);
+    Route::get('hapus_simpanan/{no_simpanan}', [SimpananController::class, 'hapus_simpanan']);
 
+
+    // PENARIKAN
+    Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+    Route::get('tambah_transaksi', [TransaksiController::class, 'tambah_transaksi']);
+    Route::post('act_tambah_transaksi', [TransaksiController::class, 'act_tambah_transaksi']);
+    Route::get('hapus_transaksi/{no_transaksi}', [TransaksiController::class, 'hapus_transaksi']);
+    
     // PINJAMAN
     Route::get('pinjaman', [PinjamanController::class, 'index'])->name('pinjaman');
     Route::get('delete_pinjaman/{no_pinjaman}', [PinjamanController::class, 'delete_pinjaman']);

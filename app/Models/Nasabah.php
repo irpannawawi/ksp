@@ -21,4 +21,6 @@ class Nasabah extends Model
         'status_nasabah',
         'saldo',
     ];
+
+        
 }
