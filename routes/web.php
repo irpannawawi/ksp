@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
 
     // PINJAMAN
     Route::get('pinjaman', [PinjamanController::class, 'index'])->name('pinjaman');
+    Route::get('delete_pinjaman/{no_pinjaman}', [PinjamanController::class, 'delete_pinjaman']);
     
     // add PINJAMAN
     Route::get('/tambah_pinjaman', [PinjamanController::class, 'tambah_pinjaman']);
