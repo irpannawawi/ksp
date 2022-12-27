@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('no_nasabah', 35);
             $table->string('tgl_pengajuan', 20);
             $table->integer('besar_pinjaman');
-            $table->integer('bunga_pinjaman');
+            $table->float('bunga_pinjaman');
             $table->integer('total_pinjaman');
             $table->integer('lama_angsuran'); 
             $table->integer('jumlah_cicilan');
