@@ -66,7 +66,7 @@ class PinjamanController extends Controller
     public function delete_pinjaman(Request $request, $no_pinjaman){
         $pinjaman = Pinjaman::find($no_pinjaman);
         if($pinjaman->delete()){
-            return redirect()->with('msg', 'Pinjaman berhasil dihapus');
+            return redirect('pinjaman')->with('msg', 'Pinjaman berhasil dihapus');
         }else{
 
         }
