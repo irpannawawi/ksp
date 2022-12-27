@@ -62,4 +62,13 @@ class PinjamanController extends Controller
         $pinjaman->save();
         return redirect()->back()->with('msg', 'Dana pinjaman telah dicairkan');
     }
+
+    public function delete_pinjaman($request, $no_pinjaman){
+        $pinjaman = Pinjaman::find($no_pinjaman);
+        if($pinjaman->delete()){
+            return redirect()->with('msg', 'Pinjaman berhasil dihapus');
+        }else{
+            
+        }
+    }
 }
