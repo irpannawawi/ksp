@@ -45,7 +45,7 @@ class PinjamanController extends Controller
         $pinjaman->total_pinjaman = $request->input('total_pinjaman');
         $pinjaman->lama_angsuran = $request->input('lama_angsuran');
         $pinjaman->jumlah_cicilan = $request->input('jumlah_cicilan');
-        $pinjaman->status_penciran = false;
+        $pinjaman->status_pencairan = false;
         $pinjaman->id_petugas = $request->input('id_petugas');
 
         if($pinjaman->save()){

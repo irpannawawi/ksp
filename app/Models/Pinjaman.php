@@ -20,7 +20,7 @@ class Pinjaman extends Model
         'total_pinjaman',
         'lama_angsuran',
         'jumlah_cicilan',
-        'status_penciran',
+        'status_pencairan',
         'id_petugas',
     ];
 

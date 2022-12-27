@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pinjaman', function (Blueprint $table) {
             $table->increments('no_pinjaman')->primary;
             $table->string('no_nasabah', 35);
-            $table->string('tgl_pengajuan', 100);
+            $table->string('tgl_pengajuan', 20);
             $table->integer('besar_pinjaman');
             $table->integer('bunga_pinjaman');
             $table->integer('total_pinjaman');

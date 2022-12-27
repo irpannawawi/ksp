@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tanggal_daftar', 35);
             $table->string('nama_nasabah', 100);
             $table->string('jenis_kelamin', 15);
-            $table->string('alamat_nasabah', 35);
+            $table->string('alamat_nasabah', 155);
             $table->string('no_tlp', 35);
             $table->string('status_nasabah', 35); //???
             $table->integer('saldo'); //???
