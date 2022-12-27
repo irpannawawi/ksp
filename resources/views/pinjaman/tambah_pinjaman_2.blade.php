@@ -33,7 +33,7 @@
                 <tr>
                     <th>Bunga Pinjaman(%)</th>
                     <td>
-                        <input type="number" class="form-control" name="bunga_pinjaman" placeholder="%">
+                        <input type="text" class="form-control" name="bunga_pinjaman" placeholder="%">
                     </td>
                 </tr>
                 
