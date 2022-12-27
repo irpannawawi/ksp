@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id_petugas')->primary;
             $table->string('username', 35);
             $table->string('nama_petugas', 35);
-            $table->string('alamat_petugas', 100);
+            $table->string('alamat_petugas', 255);
             $table->string('no_tlp', 15)->nullable();
             $table->string('tempat_lahir', 35);
             $table->string('tanggal_lahir', 35);
