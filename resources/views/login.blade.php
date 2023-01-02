@@ -9,6 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url('/')}}/ksp/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url('/')}}/ksp/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/ksp/icon/favicon-16x16.png">
+    <link rel="manifest" href="{{url('/')}}/ksp/icon/site.webmanifest">
+
     <title>SB Admin 2 - Login</title>
 
     <!-- Custom fonts for this template-->
@@ -35,8 +40,8 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img src="https://via.placeholder.com/450" class="img-fluid" alt="">
+                            <div class="col-lg-6 d-none d-lg-block p-5">
+                                <img src="{{url('/')}}/ksp/img/logo.png" class="img-fluid" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">

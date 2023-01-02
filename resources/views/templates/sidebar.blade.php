@@ -2,11 +2,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-
-                </div>
-                <div class="sidebar-brand-text mx-3">KSP Tunas Muda</div>
+            <div class="sidebar-brand-icon p-2 mx-auto mb-0">
+                <img src="{{url('/')}}/ksp/img/logo.png" width="80" class="img-fluid mx-auto rounded-circle" alt="">
+            </div>
+            <a class="sidebar-brand mt-0 d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
+                <div class="sidebar-brand-text">KSP Tunas Muda</div>
             </a>
 
             <!-- Divider -->

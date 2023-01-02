@@ -23,7 +23,7 @@ use App\Http\Controllers\JurnalController;
 |
 */
 
-Route::get('/', [AuthController::class, 'login']);
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'act_login']);
 
 Route::middleware(['auth'])->group(function () {
