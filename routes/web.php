@@ -10,6 +10,8 @@ use App\Http\Controllers\PencairanController;
 use App\Http\Controllers\AngsuranController;
 use App\Http\Controllers\SimpananController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PerkiraanController;
+use App\Http\Controllers\JurnalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,4 +80,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/riwayat_angsuran/{no_pencairan}', [AngsuranController::class, 'riwayat_angsuran']);
     Route::get('/bayar_angsuran/{no_pencairan}', [AngsuranController::class, 'bayar_angsuran']);
     Route::post('/act_bayar_angsuran', [AngsuranController::class, 'act_bayar_angsuran']);
+
+    // AKUN PERKIRAAN 
+    Route::get('/perkiraan', [PerkiraanController::class, 'index'])->name('perkiraan');
+    Route::get('/tambah_perkiraan', [PerkiraanController::class, 'tambah_perkiraan']);
+    Route::get('/edit_perkiraan/{kode_akun}', [PerkiraanController::class, 'edit_perkiraan']);
+    Route::get('/delete_perkiraan/{kode_akun}', [PerkiraanController::class, 'delete_perkiraan']);
+    Route::post('/act_tambah_perkiraan', [PerkiraanController::class, 'act_tambah_perkiraan']);
+    Route::post('/act_edit_perkiraan', [PerkiraanController::class, 'act_edit_perkiraan']);
+    
+    // JURNAL
+    Route::get('/jurnal', [JurnalController::class, 'index'])->name('jurnal');
 });

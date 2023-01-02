@@ -58,7 +58,7 @@
                     <span>Simpanan</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @yield('sidebar-penarikan')">
                 <a class="nav-link collapsed" href="{{route('transaksi')}}">
                     <i class="fas fa-fw fa-arrow-up"></i>
                     <span>Penarikan</span>
@@ -93,18 +93,26 @@
                 </a>
             </li>
 
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Laporan
+            </div>
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+            <li class="nav-item @yield('sidebar-jurnal')">
+                <a class="nav-link" href="{{route('jurnal')}}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Laporan</span></a>
+                    <span>Jurnal</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Transaksi Lain</span></a>
+            <li class="nav-item @yield('sidebar-perkiraan')">
+                <a class="nav-link" href="{{route('perkiraan')}}">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Akun Perkiraan</span></a>
             </li>
 
             <!-- Divider -->

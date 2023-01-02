@@ -28,10 +28,10 @@ class PinjamanController extends Controller
         $data = [
             'nasabah' => Nasabah::find($request->input('no_nasabah')),
         ];
-        if($data['nasabah']->count() == 1){
+        if($data['nasabah']){
             return view('pinjaman.tambah_pinjaman_2', $data);
         }else{
-            return redirect()->back()->withInput()->with('msg', 'NIK belum terdaftar');
+            return redirect('tambah_pinjaman')->withInput()->with('msg', 'NIK belum terdaftar');
 
         }
     }

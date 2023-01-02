@@ -33,7 +33,7 @@ class NasabahController extends Controller
         $nasabah->jenis_kelamin = $request->input('jenis_kelamin');
         $nasabah->alamat_nasabah = $request->input('alamat_nasabah');
         $nasabah->no_tlp = $request->input('no_tlp');
-        $nasabah->status_nasabah = '';
+        $nasabah->status_nasabah = $request->input('status');
         $nasabah->saldo = 0;
 
         if($nasabah->save()){
@@ -48,7 +48,7 @@ class NasabahController extends Controller
         $nasabah->jenis_kelamin = $request->input('jenis_kelamin');
         $nasabah->alamat_nasabah = $request->input('alamat_nasabah');
         $nasabah->no_tlp = $request->input('no_tlp');
-        $nasabah->status_nasabah = '';
+        $nasabah->status_nasabah = $request->input('status');
         
         if($nasabah->save()){
             return redirect('edit_nasabah/'.$request->input('no_nasabah'))->with('msg', 'Berhasil mengubah data nasabah');

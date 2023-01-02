@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{url('/')}}/ksp/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
 </head>
 <body id="page-top">
@@ -89,6 +90,14 @@
     <script src="{{url('/')}}/ksp/js/demo/chart-area-demo.js"></script>
     <script src="{{url('/')}}/ksp/js/demo/chart-pie-demo.js"></script>
 
+    <!-- Datatable -->
+    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('.datatable').DataTable();
+        } );
+    </script>
 </body>
 
 </html>

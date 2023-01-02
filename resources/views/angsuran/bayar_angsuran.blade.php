@@ -78,7 +78,32 @@
             <td>
                 <input type="number" name="denda" class="form-control"  value="0" required>
             </td>
-        </tr>       
+        </tr>   
+        <tr class="bg-dark text-white">
+                            <th colspan="2">JURNAL</th>
+                        </tr>
+                        <tr>
+                            <th>Debet</th>
+                            <td>
+                                <select name="akun_debet" id="akun_debet" class="form-control">
+                                    <option value="" selected disabled>--Pilih Akun Debet--</option>
+                                    @foreach ($akun as $ak)
+                                        <option value="{{$ak->kode_akun}}">{{$ak->kode_akun.' - '.$ak->nama_akun}}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <th>Kredit</th>
+                            <td>
+                                <select name="akun_kredit" id="akun_kredit" class="form-control">
+                                    <option value="" selected disabled>--Pilih Akun Kredit--</option>
+                                    @foreach ($akun as $ak)
+                                        <option value="{{$ak->kode_akun}}">{{$ak->kode_akun.' - '.$ak->nama_akun}}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                        </tr>    
     </table>
             <div class="form-group">
                 <input type="text" value="{{$pencairan->no_pencairan}}" name="no_pencairan" hidden>

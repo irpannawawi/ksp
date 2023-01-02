@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
 use App\Models\Nasabah;
+use App\Models\Jurnal;
+use App\Models\Perkiraan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class TransaksiController extends Controller
@@ -17,6 +19,7 @@ class TransaksiController extends Controller
 
     public function tambah_transaksi(Request $request){
         $data = [
+            'akun' => Perkiraan::get(),
             'nasabah' => Nasabah::find($request->input('no_nasabah')),
         ];
         return view('transaksi.tambah_transaksi', $data);
@@ -32,6 +35,31 @@ class TransaksiController extends Controller
             $nasabah = Nasabah::find($request->input('no_nasabah'));
             $nasabah->saldo -= $request->input('besar_transaksi');
             $nasabah->save();
+
+            // jurnal 
+            $akun_debet = Perkiraan::find($request->input('akun_debet'));
+            $akun_kredit = Perkiraan::find($request->input('akun_kredit'));
+            
+            // add jurnal debet
+            $jurnal = new Jurnal;
+            $jurnal->tgl_jurnal = date('Y-m-d H:i:s');
+            $jurnal->keterangan = $akun_debet->nama_akun;
+            $jurnal->no_reff = $akun_debet->kode_akun;
+            $jurnal->debet = $request->input('besar_transaksi');
+            $jurnal->kredit = 0;
+            $jurnal->id_petugas = Auth::user()->id_petugas;
+            $jurnal->save();
+
+            // add jurnal kredit
+            $jurnal_k = new Jurnal;
+            $jurnal_k->tgl_jurnal = date('Y-m-d H:i:s');
+            $jurnal_k->keterangan = $akun_kredit->nama_akun;
+            $jurnal_k->no_reff = $akun_kredit->kode_akun;
+            $jurnal_k->kredit = $request->input('besar_transaksi');
+            $jurnal_k->debet = 0;
+            $jurnal_k->id_petugas = Auth::user()->id_petugas;
+            $jurnal_k->save();
+
             return redirect('transaksi')->with('msg', 'Berhasil menambah transaksi');
         }
     }    

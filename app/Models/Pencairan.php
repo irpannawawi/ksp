@@ -20,6 +20,9 @@ class Pencairan extends Model
         'id_petugas',
     ];
 
+    public function petugas(){
+        return $this->hasOne(Petugas::class, 'id_petugas');
+    }
     public function pinjaman(){
         return $this->hasOne(Pinjaman::class, 'no_pinjaman');
     }
@@ -28,7 +31,4 @@ class Pencairan extends Model
         return $this->hasMany(Angsuran::class, 'no_pencairan');
     }
 
-    public function petugas(){
-        return $this->hasOne(Petugas::class, 'id_petugas');
-    }
 }

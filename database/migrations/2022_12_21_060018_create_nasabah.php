@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('nasabah', function (Blueprint $table) {
-            $table->string('no_nasabah')->primary;
+            $table->string('no_nasabah', 20)->primary;
             $table->string('tanggal_daftar', 35);
             $table->string('nama_nasabah', 100);
             $table->string('jenis_kelamin', 15);
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('no_tlp', 35);
             $table->string('status_nasabah', 35); //???
             $table->integer('saldo'); //???
+            $table->primary('no_nasabah');
         });
     }
 
