@@ -44,6 +44,8 @@
                         <td>
                             @if ($data->status_pencairan == 'Menunggu')
                             <a class="btn btn-sm btn-success" onclick="return confirm('Cairkan pinjaman?')" href="{{url('cairkan_pinjaman/'.$data->no_pinjaman)}}">Cairkan</a>
+                            @else
+                            <a class="btn btn-primary btn-sm" href="{{url('print_kwitansi')}}/pencairan/{{$data->pencairan->no_pencairan}}" target="_blank"><i class="fa fa-print"></i></a>
                             @endif
                         </td>
                     </tr>
@@ -54,3 +56,9 @@
     </div>
 </div>
 @endsection
+@if (Session::has('kwitansi'))
+<script>
+    url = "{{url('print_kwitansi')}}/pencairan/{{session('kwitansi')}}";
+    window.open(url, '_blank').location;
+</script>
+@endif

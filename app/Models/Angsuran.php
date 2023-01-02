@@ -23,6 +23,10 @@ class Angsuran extends Model
     ];
 
     public function petugas(){
-        return $this->hasOne(Petugas::class, 'id_petugas');
+        return $this->belongsTo(Petugas::class, 'id_petugas');
+    }
+
+    public function pencairan(){
+        return $this->belongsTo(Pencairan::class, 'no_pencairan');
     }
 }

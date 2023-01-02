@@ -74,6 +74,6 @@ class AngsuranController extends Controller
         $jurnal_k->id_angsuran = $angsuran->no_angsuran;
         $jurnal_k->save();
 
-        return redirect('riwayat_angsuran/'.$request->input('no_pencairan'));
+        return redirect('riwayat_angsuran/'.$request->input('no_pencairan'))->with(['msg'=>'Pembayaran berhasil', 'kwitansi'=>$angsuran->no_angsuran]);
     }
 }

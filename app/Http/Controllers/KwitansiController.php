@@ -70,16 +70,16 @@ class KwitansiController extends Controller
             $noreg = 'PN-'.$tb->no_pencairan;
             $nama_nasabah = "KSP Tunas Muda";
             $nominal = $tb->besar_pencairan;
-            $ket = "Pencairan Pinjaman Nasabah An. ".strtoupper($tb->nasabah->nama_nasabah);
+            $ket = "Pencairan Pinjaman Nasabah An. ".strtoupper($tb->pinjaman->nasabah->nama_nasabah);
             $tgl = $tb->tanggal_pencairan;
 
         }elseif($type == 'angsuran'){
             $tb = Angsuran::find($id);
             $noreg = 'AS-'.$tb->no_angsuran;
-            $nama_nasabah = strtoupper($tb->nasabah->nama_nasabah);
+            $nama_nasabah = strtoupper($tb->pencairan->pinjaman->nasabah->nama_nasabah);
             $nominal = $tb->besar_pembayaran;
             $ket = "Pembayaran Angsuran Pinjaman";
-            $tgl = $tb->tanggal_angsuran;
+            $tgl = $tb->tanggal_pembayaran;
         }
 
         $data = [

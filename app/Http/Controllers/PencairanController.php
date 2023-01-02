@@ -66,7 +66,7 @@ class PencairanController extends Controller
             $jurnal_k->id_pencairan = $pencairan->no_pencairan;
             $jurnal_k->save();
             
-            return redirect('pencairan')->with('msg', 'Dana Berhasil dicairkan');
+            return redirect('pencairan')->with(['msg'=>'Dana Berhasil dicairkan',  'kwitansi'=>$pencairan->no_pencairan]);
         }else{
             return redirect('pencairan')->with('msg', 'Dana Gagal dicairkan');
         }
