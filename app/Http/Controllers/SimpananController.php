@@ -55,6 +55,7 @@ class SimpananController extends Controller
             $jurnal->debet = $request->input('besar_simpanan');
             $jurnal->kredit = 0;
             $jurnal->id_petugas = Auth::user()->id_petugas;
+            $jurnal->id_simpanan = $simpanan->no_simpanan;
             $jurnal->save();
 
             // add jurnal kredit
@@ -65,6 +66,7 @@ class SimpananController extends Controller
             $jurnal_k->kredit = $request->input('besar_simpanan');
             $jurnal_k->debet = 0;
             $jurnal_k->id_petugas = Auth::user()->id_petugas;
+            $jurnal_k->id_simpanan = $simpanan->no_simpanan;
             $jurnal_k->save();
 
             return redirect('simpanan')->with('msg', 'Berhasil menambah simpanan');

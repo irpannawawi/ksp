@@ -48,6 +48,7 @@ class TransaksiController extends Controller
             $jurnal->debet = $request->input('besar_transaksi');
             $jurnal->kredit = 0;
             $jurnal->id_petugas = Auth::user()->id_petugas;
+            $jurnal->id_transaksi = $transaksi->no_transaksi;
             $jurnal->save();
 
             // add jurnal kredit
@@ -58,6 +59,7 @@ class TransaksiController extends Controller
             $jurnal_k->kredit = $request->input('besar_transaksi');
             $jurnal_k->debet = 0;
             $jurnal_k->id_petugas = Auth::user()->id_petugas;
+            $jurnal_k->id_transaksi = $transaksi->no_transaksi;
             $jurnal_k->save();
 
             return redirect('transaksi')->with('msg', 'Berhasil menambah transaksi');

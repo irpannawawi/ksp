@@ -60,6 +60,7 @@ class AngsuranController extends Controller
         $jurnal->debet = $total;
         $jurnal->kredit = 0;
         $jurnal->id_petugas = Auth::user()->id_petugas;
+        $jurnal->id_angsuran = $angsuran->no_angsuran;
         $jurnal->save();
 
         // add jurnal kredit
@@ -70,6 +71,7 @@ class AngsuranController extends Controller
         $jurnal_k->kredit = $total;
         $jurnal_k->debet = 0;
         $jurnal_k->id_petugas = Auth::user()->id_petugas;
+        $jurnal_k->id_angsuran = $angsuran->no_angsuran;
         $jurnal_k->save();
 
         return redirect('riwayat_angsuran/'.$request->input('no_pencairan'));

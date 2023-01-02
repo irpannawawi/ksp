@@ -52,6 +52,7 @@ class PencairanController extends Controller
             $jurnal->debet = $request->input('besar_pencairan');
             $jurnal->kredit = 0;
             $jurnal->id_petugas = Auth::user()->id_petugas;
+            $jurnal->id_pencairan = $pencairan->no_pencairan;
             $jurnal->save();
 
             // add jurnal kredit
@@ -62,6 +63,7 @@ class PencairanController extends Controller
             $jurnal_k->kredit = $request->input('besar_pencairan');
             $jurnal_k->debet = 0;
             $jurnal_k->id_petugas = Auth::user()->id_petugas;
+            $jurnal_k->id_pencairan = $pencairan->no_pencairan;
             $jurnal_k->save();
             
             return redirect('pencairan')->with('msg', 'Dana Berhasil dicairkan');
