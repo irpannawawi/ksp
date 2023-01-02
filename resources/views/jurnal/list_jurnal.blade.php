@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="float-left">Data Jurnal Umum</h3>
-            <a href="#" target="_blank" class="btn btn-sm btn-success float-right"><i class="fa fa-print"></i></a>
+            <a href="{{url('print_jurnal')}}/{{$bulan?$bulan:date('m')}}/{{$tahun?$tahun:date('Y')}}" target="_blank" class="btn btn-sm btn-success float-right"><i class="fa fa-print"></i></a>
         </div>
         <div class="card-body">
             <form method="GET">
@@ -21,7 +21,7 @@
                         <select name="bulan" id="" class="form-control">
                             @for ($n=1; $n<=12; $n++)
                             <option 
-                            @if (date('d') == $n OR $n == $bulan)
+                            @if (date('m') == $n OR $n == $bulan)
                                 selected
                             @endif
                             value="{{strlen($n)<2?'0'.$n:$n}}">{{strlen($n)<2?'0'.$n:$n}}</option>

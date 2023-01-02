@@ -62,7 +62,7 @@ class TransaksiController extends Controller
             $jurnal_k->id_transaksi = $transaksi->no_transaksi;
             $jurnal_k->save();
 
-            return redirect('transaksi')->with('msg', 'Berhasil menambah transaksi');
+            return redirect('transaksi')->with(['msg'=>'Berhasil menambah transaksi', 'kwitansi'=>$transaksi->no_transaksi]);
         }
     }    
     public function hapus_transaksi(Request $request, $no_transaksi){
@@ -70,6 +70,9 @@ class TransaksiController extends Controller
         $nasabah = Nasabah::find($transaksi->no_nasabah);
         $nasabah->saldo += $transaksi->besar_transaksi;
         $nasabah->save();
+
+        Jurnal::where('id_transaksi', $transaksi->no_transaksi)->delete();
+
         if($transaksi->delete()){
             return redirect('transaksi')->with('msg', 'Berhasil menghapus transaksi');
         }

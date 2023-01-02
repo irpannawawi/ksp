@@ -69,7 +69,7 @@ class SimpananController extends Controller
             $jurnal_k->id_simpanan = $simpanan->no_simpanan;
             $jurnal_k->save();
 
-            return redirect('simpanan')->with('msg', 'Berhasil menambah simpanan');
+            return redirect('simpanan')->with(['msg'=>'Berhasil menambah simpanan', 'kwitansi'=>$simpanan->no_simpanan]);
         }
     }    
     public function hapus_simpanan(Request $request, $no_simpanan){
@@ -77,7 +77,10 @@ class SimpananController extends Controller
         $nasabah = Nasabah::find($simpanan->no_nasabah);
         $nasabah->saldo -= $simpanan->besar_simpanan;
         $nasabah->save();
+
+        Jurnal::where('id_simpanan', $simpanan->no_simpanan)->delete();
         if($simpanan->delete()){
+
             return redirect('simpanan')->with('msg', 'Berhasil menghapus simpanan');
         }
     }

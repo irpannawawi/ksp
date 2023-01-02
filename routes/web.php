@@ -12,6 +12,7 @@ use App\Http\Controllers\SimpananController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PerkiraanController;
 use App\Http\Controllers\JurnalController;
+use App\Http\Controllers\KwitansiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,4 +92,6 @@ Route::middleware(['auth'])->group(function () {
     
     // JURNAL
     Route::get('/jurnal', [JurnalController::class, 'index'])->name('jurnal');
+    Route::get('/print_jurnal/{bulan}/{tahun}', [JurnalController::class, 'print']);
+    Route::get('/print_kwitansi/{type}/{id}', [KwitansiController::class, 'index']);
 });

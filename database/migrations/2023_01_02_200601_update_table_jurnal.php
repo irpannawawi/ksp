@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('jurnal', function (Blueprint $table) {
-            $table->string('id_simpanan', 11);
-            $table->string('id_transaksi', 11);
-            $table->string('id_pencairan',11);
-            $table->string('id_angsuran', 11);
+            $table->string('id_simpanan', 11)->default(null)->nullable();
+            $table->string('id_transaksi', 11)->default(null)->nullable();
+            $table->string('id_pencairan',11)->default(null)->nullable();
+            $table->string('id_angsuran', 11)->default(null)->nullable();
         });
     }
 

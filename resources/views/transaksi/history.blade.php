@@ -39,6 +39,7 @@
                         <td>Rp.{{number_format($data->besar_transaksi, 0, '.',',')}},-</td>
                         <td nowrap>
                             <div class="btn-group">
+                                <a class="btn btn-primary btn-sm" href="{{url('print_kwitansi')}}/transaksi/{{$data->no_transaksi}}"><i class="fa fa-print"></i></a>
                                 <a class="btn btn-danger btn-sm"  href="{{url('hapus_transaksi/'.$data->no_transaksi)}}"><i class="fa fa-trash"></i></a>
                             </div>
                         </td>
@@ -49,4 +50,11 @@
         </div>
     </div>
 </div>
+
+@if (Session::has('kwitansi'))
+<script>
+    url = "{{url('print_kwitansi')}}/transaksi/{{session('kwitansi')}}";
+    window.open(url, '_blank').location;
+</script>
+@endif
 @endsection
