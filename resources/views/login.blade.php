@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/ksp/icon/favicon-16x16.png">
     <link rel="manifest" href="{{url('/')}}/ksp/icon/site.webmanifest">
 
-    <title>SB Admin 2 - Login</title>
+    <title>KSP TUNAS MUDA</title>
 
     <!-- Custom fonts for this template-->
     <link href="ksp/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

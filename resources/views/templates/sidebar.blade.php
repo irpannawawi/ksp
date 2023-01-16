@@ -18,7 +18,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
+            @if(Auth::user()->hak_akses == 'admin')
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -26,7 +26,6 @@
             <div class="sidebar-heading">
                 Pengguna
             </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item @yield('sidebar-nasabah')">
                 <a class="nav-link " href="{{route('nasabah')}}" >
@@ -34,7 +33,8 @@
                     <span>Nasabah</span>
                 </a>
             </li>
-
+            @endif
+            @if(Auth::user()->hak_akses == 'admin' OR Auth::user()->hak_akses == 'pimpinan')
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item @yield('sidebar-petugas')">
                 <a class="nav-link" href="{{route('petugas')}}">
@@ -42,7 +42,9 @@
                     <span>Petugas</span>
                 </a>
             </li>
+            @endif
 
+            @if(Auth::user()->hak_akses == 'admin' OR Auth::user()->hak_akses == 'pimpinan')
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -64,7 +66,9 @@
                     <span>Penarikan</span>
                 </a>
             </li>
-            
+            @endif
+            @if(Auth::user()->hak_akses == 'admin' OR Auth::user()->hak_akses == 'pimpinan' OR Auth::user()->hak_akses == 'kasir')
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -72,28 +76,33 @@
             <div class="sidebar-heading">
                 Transaksi Pinjaman
             </div>
+            @if(Auth::user()->hak_akses != 'kasir')
             <li class="nav-item @yield('sidebar-pinjaman')">
                 <a class="nav-link collapsed" href="{{route('pinjaman')}}" >
                     <i class="fas fa-fw fa-hands"></i>
                     <span>Pinjaman</span>
                 </a>
-            </li>  
-            
+            </li>
+            @endif
+            @if(Auth::user()->hak_akses == 'pimpinan' OR Auth::user()->hak_akses == 'kasir')
             <li class="nav-item @yield('sidebar-pencairan')">
                 <a class="nav-link collapsed" href="{{route('pencairan')}}" >
                     <i class="fas fa-fw fa-dollar-sign"></i>
                     <span>Pencairan</span>
                 </a>
             </li>    
-
+            @endif
+            @if(Auth::user()->hak_akses != 'kasir')
             <li class="nav-item @yield('sidebar-angsuran')">
                 <a class="nav-link collapsed" href="{{route('angsuran')}}" >
                     <i class="fas fa-fw fa-th-list"></i>
                     <span>Angsuran</span>
                 </a>
             </li>
+            @endif
+            @endif
 
-
+            @if(Auth::user()->hak_akses == 'pimpinan' OR Auth::user()->hak_akses == 'kasir')
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -114,7 +123,7 @@
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>Akun Perkiraan</span></a>
             </li>
-
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
